@@ -6,16 +6,16 @@ const Navbar = ({ children }) => {
         <>
             <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
             <li><NavLink to='/about' className='rounded-lg'>About</NavLink></li>
-            <li><NavLink to='/contact' className='rounded-lg'>Contact</NavLink></li>
+            <li><NavLink to='/blog' className='rounded-lg'>Blog</NavLink></li>
             <li><NavLink to='/login' className='rounded-lg'>Login</NavLink></li>
             {/* <button data-toggle-theme="dark,light">Theme</button> */}
-            <li className="dropdown dropdown-hover dropdown-end">
+            {/* <li className="dropdown dropdown-hover dropdown-end">
                 <label tabIndex="0" className="btn btn-primary btn-outline m-1 rounded-lg">Buy Now</label>
                 <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                     <li><a>Item 1</a></li>
                     <li><a>Item 2</a></li>
                 </ul>
-            </li>
+            </li> */}
         </>
     return (
         <div className="drawer drawer-end">
