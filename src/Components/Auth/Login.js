@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import img from '../../Assets/Images/login-bg.jpg'
 import auth from './../../Firebase/Firebase.init';
 import AtomSpinner from '../Shared/AtomSpinner/AtomSpinner';
+import SocialLogin from './SocialLogin';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -116,10 +117,12 @@ const Login = () => {
                                 
                                 <small>Don't have account?<Link className='text-green-400 hover:text-green-500' to='/signup'>Create an Account</Link></small>
                                 <div>
-                                    <input type="submit" value='Login' class="w-full flex justify-center bg-green-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500" />
+                                    <input type="submit" value='Login' class="w-full flex justify-center bg-green-400  hover:bg-green-500 text-gray-100 p-3  rounded-md tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500" />
                                 </div>
                             </div>
                         </form>
+                        <div className="divider">OR</div>
+                        <SocialLogin/>
                     </div>
                 </div>
             </div>

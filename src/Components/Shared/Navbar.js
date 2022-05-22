@@ -1,19 +1,30 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import toast from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
+import auth from '../../Firebase/Firebase.init';
 
 const Navbar = ({ children }) => {
+    const [user] = useAuthState(auth);
+    const logout = () => {
+        signOut(auth);
+        // localStorage.removeItem('accessToken');
+        toast.success('Successfully Logout!', { id: 'logout' })
+    }
     const menuItems =
         <>
             <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
             <li><NavLink to='/about' className='rounded-lg'>About</NavLink></li>
             <li><NavLink to='/blog' className='rounded-lg'>Blog</NavLink></li>
-            <li><NavLink to='/login' className='rounded-lg'>Login</NavLink></li>
+            {/* <li><NavLink to='/login' className='rounded-lg'>Login</NavLink></li> */}
+            <li>{user?.uid ? (<button className='btn btn-ghost' onClick={logout}>Logout</button>) : (<NavLink className='rounded-lg' to='/login'>Login</NavLink>)}</li>
             {/* <button data-toggle-theme="dark,light">Theme</button> */}
             {/* <li className="dropdown dropdown-hover dropdown-end">
                 <label tabIndex="0" className="btn btn-primary btn-outline m-1 rounded-lg">Buy Now</label>
                 <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a>Item 1</a></li>
-                    <li><a>Item 2</a></li>
+                <li><a>Item 2</a></li>
+                <button className='btn btn-ghost' onClick={logout}>Logout</button>
                 </ul>
             </li> */}
         </>
