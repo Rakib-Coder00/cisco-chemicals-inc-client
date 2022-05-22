@@ -17,6 +17,9 @@ const Navbar = ({ children }) => {
             <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
             <li><NavLink to='/about' className='rounded-lg'>About</NavLink></li>
             <li><NavLink to='/blog' className='rounded-lg'>Blog</NavLink></li>
+            {
+                user && <li><NavLink className='rounded-lg' to='/dashboard'>Dashboard</NavLink></li>
+            }
             {/* <li><NavLink to='/login' className='rounded-lg'>Login</NavLink></li> */}
             <li>{user?.uid ? (<button className='btn btn-ghost' onClick={logout}>Logout</button>) : (<NavLink className='rounded-lg' to='/login'>Login</NavLink>)}</li>
             {/* <button data-toggle-theme="dark,light">Theme</button> */}
