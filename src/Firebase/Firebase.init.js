@@ -4,12 +4,12 @@ import { getAuth } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDqHKkm1rrizhQUk50oJ-CidIuKvPJUi0g",
-  authDomain: "cisco-chemicals-inc.firebaseapp.com",
-  projectId: "cisco-chemicals-inc",
-  storageBucket: "cisco-chemicals-inc.appspot.com",
-  messagingSenderId: "793148512196",
-  appId: "1:793148512196:web:b01b6a663ab46f53e1f691"
+  apiKey:process.env.REACT_APP_API_KEY,
+  authDomain:process.env.REACT_APP_AUTH_DOMAIN,
+  projectId:process.env.REACT_APP_PROJECT_ID,
+  storageBucket:process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId:process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId:process.env.REACT_APP_APP_ID,
 };
 
 

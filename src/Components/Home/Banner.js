@@ -1,6 +1,6 @@
 import React from 'react';
 import img1 from '../../Assets/Images/DD2_2048.jpg'
-import img2 from '../../Assets/Images/DD2_2069.jpg'
+import img2 from '../../Assets/Images/careers.jpg'
 import img3 from '../../Assets/Images/index_mv_im03.jpg'
 
 const Banner = () => {

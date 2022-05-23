@@ -5,7 +5,7 @@ const PageTitle = ({title}) => {
     return (
         <div>
             <Helmet>
-                <title>{title} -Website Name</title>
+                <title>{title} - Cisco-Chemicals</title>
             </Helmet>
         </div>
     );
