@@ -2,7 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
-import Spinner from '../Shared/Spinner';
+import AtomSpinner from '../Shared/AtomSpinner/AtomSpinner';
 
 const RequireAuth = ({ children }) => {
     let location = useLocation();
@@ -11,7 +11,7 @@ const RequireAuth = ({ children }) => {
 
     if (loading) {
       return (
-        <Spinner/>
+        <AtomSpinner/>
       )
       }
 

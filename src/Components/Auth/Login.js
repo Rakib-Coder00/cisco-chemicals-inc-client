@@ -7,6 +7,7 @@ import img from '../../Assets/Images/login-bg.jpg'
 import auth from './../../Firebase/Firebase.init';
 import AtomSpinner from '../Shared/AtomSpinner/AtomSpinner';
 import SocialLogin from './SocialLogin';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -22,8 +23,9 @@ const Login = () => {
         signInWithEmailAndPassword(data.email, data.password)
         console.log(data);
     }
+    const [token] = useToken(user)
 
-    if (user) {
+    if (token) {
         toast.success('Successfully login', { id: 'success' })
         navigate(from, { replace: true })
       }

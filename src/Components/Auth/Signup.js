@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../Assets/Images/login-bg.jpg'
 import auth from '../../Firebase/Firebase.init';
+import useToken from '../../Hooks/useToken';
 import AtomSpinner from '../Shared/AtomSpinner/AtomSpinner';
 import SocialLogin from './SocialLogin';
 
@@ -16,17 +17,26 @@ const Signup = () => {
 
     const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [token] = useToken(user)
 
     const onSubmit = async(data) => {
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName : data.name})
-        console.log(data);
+        // console.log(data);
     }
-    if (user) {
-        // console.log(user);
-        toast.success('Successfully login', { id: 'success' })
-        navigate(from, { replace: true })
-      }
+
+    useEffect(() => {
+        if (token) {
+          // console.log(user);
+          toast.success('Successfully login', { id: 'success' })
+          navigate(from, { replace: true })
+        }
+      }, [token, from, navigate])
+    // if (token) {
+    //     // console.log(user);
+    //     toast.success('Successfully login', { id: 'success' })
+    //     navigate(from, { replace: true })
+    //   }
     if (error) {
         toast.error(error.message, { id: 'error' })
 

@@ -15,6 +15,7 @@ import History from './Components/Dashboard/History';
 import MyProduct from './Components/Dashboard/MyProduct';
 import Checkout from './Pages/Checkout';
 import Products from './Components/Home/Products';
+import MyOrder from './Components/Dashboard/MyOrder';
 
 function App() {
   return (
@@ -33,11 +34,12 @@ function App() {
             <Route path="/dashboard" element={<MyProduct />} />
             <Route path="review" element={<MyReview />} />
             <Route path="history" element={<History />} />
+            <Route path="orders" element={<MyOrder />} />
 
           </Route>
 
           <Route path="/product" element={<Products />} />
-          <Route path="/product/:id" element={ <Checkout />} />
+          <Route path="/product/:id" element={<RequireAuth><Checkout /></RequireAuth> } />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Navbar>
