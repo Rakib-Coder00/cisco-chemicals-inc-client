@@ -9,7 +9,7 @@ const Navbar = ({ children }) => {
     const [user] = useAuthState(auth);
     const logout = () => {
         signOut(auth);
-        // localStorage.removeItem('accessToken');
+        localStorage.removeItem('accessToken');
         toast.success('Successfully Logout!', { id: 'logout' })
     }
     const menuItems =

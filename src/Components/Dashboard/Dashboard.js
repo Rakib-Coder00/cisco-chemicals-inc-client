@@ -1,7 +1,12 @@
 import React from 'react';
-import {NavLink, Outlet } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { NavLink, Outlet } from 'react-router-dom';
+import auth from '../../Firebase/Firebase.init';
+import useAdmin from '../../Hooks/useAdmin';
 
 const Dashboard = () => {
+    const [user] = useAuthState(auth)
+    const [admin] = useAdmin(user);
     return (
         <div class="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -18,14 +23,13 @@ const Dashboard = () => {
                     <li><NavLink to='/dashboard'>My Product</NavLink></li>
                     <li><NavLink to='/dashboard/review'>My Review</NavLink></li>
                     <li><NavLink to='/dashboard/orders'>My Orders</NavLink></li>
-                    <li><NavLink to='/dashboard/users'>All Users</NavLink></li>
                     {/* <li><Link to='/dashboard/history'>My History</Link></li> */}
-                    {/* {admin && <>
-                        <li><Link to='/dashboard/users'>All users</Link></li>
-                        <li><Link to='/dashboard/addDoctor'>Add a Doctor</Link></li>
-                        <li><Link to='/dashboard/manageDoctor'>Manage Doctor</Link></li>
+                    {admin && <>
+                        <li><NavLink to='/dashboard/users'>All Users</NavLink></li>
+                        {/* <li><Link to='/dashboard/addDoctor'>Add a Doctor</Link></li> */}
+                        {/* <li><Link to='/dashboard/manageDoctor'>Manage Doctor</Link></li> */}
                     </>
-                    } */}
+                    }
                 </ul>
 
             </div>
