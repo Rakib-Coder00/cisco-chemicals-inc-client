@@ -13,10 +13,12 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import MyReview from './Components/Dashboard/MyReview';
 import History from './Components/Dashboard/History';
 import MyProduct from './Components/Dashboard/MyProduct';
+import Checkout from './Pages/Checkout';
+import Products from './Components/Home/Products';
 
 function App() {
   return (
-    <>
+    <div>
       <Navbar>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -34,12 +36,13 @@ function App() {
 
           </Route>
 
-
+          <Route path="/product" element={<Products />} />
+          <Route path="/product/:id" element={ <Checkout />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Navbar>
       <Toaster />
-    </>
+    </div>
   );
 }
 
