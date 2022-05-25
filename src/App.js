@@ -39,7 +39,7 @@ function App() {
             <Route path="history" element={<History />} />
             <Route path="orders" element={<MyOrder />} />
             <Route path="users" element={<RequireAdmin><Users /></RequireAdmin>} />
-            <Route path="addProduct" element={<AddProduct />} />
+            <Route path="addProduct" element={<RequireAdmin><AddProduct /></RequireAdmin>} />
 
           </Route>
 

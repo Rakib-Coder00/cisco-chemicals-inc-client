@@ -31,11 +31,10 @@ const MyOrder = () => {
         }
     }, [user, navigate])
 
-    // const [services, setServices] = useServices() 
     const handleDelete = (id) => {
-        const proceedConfirmation = window.confirm('Are you sure you want to delete this service?')
+        const proceedConfirmation = window.confirm('Are you sure you want to delete this order?')
         if (proceedConfirmation) {
-            fetch(`https://enigmatic-river-27486.herokuapp.com/service/${id}`, {
+            fetch(`http://localhost:5000/order/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json'
