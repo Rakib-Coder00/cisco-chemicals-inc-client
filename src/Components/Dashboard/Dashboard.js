@@ -22,6 +22,7 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <li><NavLink to='/dashboard'>My Product</NavLink></li>
                     <li><NavLink to='/dashboard/orders'>My Orders</NavLink></li>
+                    {/* <li><NavLink to='/dashboard/orders'>My Orders</NavLink></li> */}
                     { !admin && <>
                         <li><NavLink to='/dashboard/myProfile'>My Profile</NavLink></li>
                         <li><NavLink to='/dashboard/review'>Add Review</NavLink></li>
