@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useQuery } from 'react-query';
+import AtomSpinner from '../Shared/AtomSpinner/AtomSpinner';
 
 const ManageAllProduct = () => {
-    const [allProducts, setAllProducts] = useState([])
-    useEffect(() => {
-        fetch('http://localhost:5000/product')
-            .then(res => res.json())
-            .then(data => setAllProducts(data))
-    }, [])
+    // const [allProducts, setAllProducts] = useState([])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/product')
+    //         .then(res => res.json())
+    //         .then(data => setAllProducts(data))
+    // }, [])
+
+    const { data: allProducts, isLoading, refetch } = useQuery('allProducts', () => fetch('http://localhost:5000/product', {
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    })
+        .then(res => res.json()));
+    if (isLoading) {
+        return <AtomSpinner />
+    }
 
     const handleDelete = (id) => {
         const proceedConfirmation = window.confirm('Are you sure you want to delete this order?')
@@ -21,11 +33,11 @@ const ManageAllProduct = () => {
             })
                 .then(res => res.json())
                 .then(result => {
-                    console.log(result);
-                    const remainingItems = allProducts.filter(service => service._id !== id)
-                    setAllProducts(remainingItems)
+                    if (result.deletedCount) {
+                        toast.success('Item Deleted successfully', { "id": 'deleted' })
+                        refetch()
+                    }
                 })
-                toast.success('Product Deleted successfully', { "id": 'deleted' })
         }
         else {
             toast.error('Action Cancelled', { "id": 'cancelled' })

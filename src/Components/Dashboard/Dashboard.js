@@ -22,8 +22,11 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <li><NavLink to='/dashboard'>My Product</NavLink></li>
                     <li><NavLink to='/dashboard/orders'>My Orders</NavLink></li>
-                    <li><NavLink to='/dashboard/review'>Add Review</NavLink></li>
-                    { !admin && <li><NavLink to='/dashboard/myProfile'>My Profile</NavLink></li>}
+                    { !admin && <>
+                        <li><NavLink to='/dashboard/myProfile'>My Profile</NavLink></li>
+                        <li><NavLink to='/dashboard/review'>Add Review</NavLink></li>
+                        </>
+                    }
                     {/* <li><Link to='/dashboard/history'>My History</Link></li> */}
                     {admin && <>
                         <li><NavLink to='/dashboard/users'>All Users</NavLink></li>

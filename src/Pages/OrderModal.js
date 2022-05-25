@@ -3,7 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import auth from '../Firebase/Firebase.init';
 
-const OrderModal = ({ product, setOrder }) => {
+const OrderModal = ({ product }) => {
     const [user] = useAuthState(auth)
 
 
@@ -36,8 +36,8 @@ const OrderModal = ({ product, setOrder }) => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    if (data.success) {
-                        toast.success('Order Placed Successfully');
+                    if (data.insertedId) {
+                        toast.success('Order placed successfully');
                     }
                     else {
                         toast.error(`Booking Failed`)
