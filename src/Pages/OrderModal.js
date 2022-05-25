@@ -20,6 +20,7 @@ const OrderModal = ({ product, setOrder }) => {
             price: product.price,
             quantity: quantity,
             address: address,
+            picture: product.picture,
         }
         if (quantity > product.max_quantity || quantity < product.min_quantity) {
             return toast.error(`Quantity should be between ${product.min_quantity} and ${product.max_quantity}`)

@@ -61,10 +61,11 @@ const MyOrder = () => {
                     <thead>
                         <tr>
                             <th>SL/n</th>
-                            <th>Name</th>
+                            <th>Avatar</th>
                             <th>Product Name</th>
                             <th>Quantity</th>
                             <th>Price</th>
+                            <th>Payment</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -72,11 +73,16 @@ const MyOrder = () => {
                         {/* <!-- row 1 --> */}
                         {orders.map((order, index) => (<tr key={order._id}>
                             <th>{index + 1}</th>
-                            <td>{order.user}</td>
+                            <td><div class="avatar">
+                                        <div class="w-14 mask mask-squircle">
+                                            <img src={order.picture} alt='avatar' />
+                                        </div>
+                                    </div></td>
                             <td>{order.product}</td>
                             <td>{order.quantity}</td>
                             <td>{order.price}</td>
-                            <td><button onClick={()=>handleDelete(order._id)}>Delete</button></td>
+                            <td><button className='btn btn-xs btn-secondary'>Pay Now</button></td>
+                            <td><button onClick={()=>handleDelete(order._id)} className='btn btn-xs btn-error'>Delete</button></td>
                         </tr>))
                         }
                     </tbody>
