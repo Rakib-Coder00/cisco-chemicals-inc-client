@@ -1,24 +1,59 @@
 import React, { useEffect, useState } from 'react';
+import { signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
-import axios from 'axios';
+import toast from 'react-hot-toast';
+
 
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth)
+    const navigate = useNavigate()
+    
     useEffect(() => {
-        const getOrders = async () => {
-            const email = user.email
-            const url = `http://localhost:5000/order?email=${email}`;
-            const { data } = await axios.get(url, {
+        if (user) {
+                fetch(`http://localhost:5000/order?email=${user.email}`, {
+                    method: 'GET',
+                    headers: {
+                        'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                })
+                    .then(res => {
+                        if (res.status === 401 || res.status === 403) {
+                            signOut(auth);
+                            localStorage.removeItem('accessToken');
+                            navigate('/login')
+                        }
+                        return res.json()
+                    })
+                    .then(data => setOrders(data))
+        }
+    }, [user, navigate])
+
+    // const [services, setServices] = useServices() 
+    const handleDelete = (id) => {
+        const proceedConfirmation = window.confirm('Are you sure you want to delete this service?')
+        if (proceedConfirmation) {
+            fetch(`https://enigmatic-river-27486.herokuapp.com/service/${id}`, {
+                method: 'DELETE',
                 headers: {
-                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    'content-type': 'application/json'
                 }
             })
-            setOrders(data);
+                .then(res => res.json())
+                .then(result => {
+                    console.log(result);
+                    const remainingItems = orders.filter(service => service._id !== id)
+                    setOrders(remainingItems)
+                })
+                toast.success('Item Deleted successfully', { "id": 'deleted' })
         }
-        getOrders();
-    }, [user])
+        else {
+            toast.error('Action Cancelled', { "id": 'cancelled' })
+        }
+    }
+
     return (
         <div>
             <div class="overflow-x-auto">
@@ -28,8 +63,10 @@ const MyOrder = () => {
                         <tr>
                             <th>SL/n</th>
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,8 +74,10 @@ const MyOrder = () => {
                         {orders.map((order, index) => (<tr key={order._id}>
                             <th>{index + 1}</th>
                             <td>{order.user}</td>
+                            <td>{order.product}</td>
+                            <td>{order.quantity}</td>
                             <td>{order.price}</td>
-                            <td>{order.email}</td>
+                            <td><button onClick={()=>handleDelete(order._id)}>Delete</button></td>
                         </tr>))
                         }
                     </tbody>

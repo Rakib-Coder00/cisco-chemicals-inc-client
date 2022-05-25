@@ -25,7 +25,7 @@ const Users = () => {
                         <th>SL/no</th>
                         <th>Email</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        {/* <th>Action</th> */}
                     </tr>
                 </thead>
                 <tbody>
