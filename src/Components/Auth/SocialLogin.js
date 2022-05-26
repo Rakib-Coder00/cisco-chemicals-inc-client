@@ -27,7 +27,7 @@ const SocialLogin = () => {
     }
     return (
         <>
-            <button onClick={() => signInWithGoogle()} className="btn btn-outline bg-green-400  hover:bg-green-500 text-gray-100 w-full max-w-xs mt-3">Continue With google</button>
+            <button onClick={() => signInWithGoogle()} className="btn btn-outline hover:bg-green-500 w-full max-w-xs mt-3">Continue With google</button>
         </>
     );
 };

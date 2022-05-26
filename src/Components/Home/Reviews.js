@@ -12,16 +12,17 @@ const Reviews = () => {
       .then(data => setReviews(data))
     }, [])
     return (
-        <div>
-            <h2 className='text-center'>Our Happy Clients</h2>
-            <div className="review">
+        <div className='mt-40'>
+            <h2 className='text-center text-3xl font-bold text-primary'>Our Happy Clients</h2>
+            <div className="review grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-14">
                 {
                     reviews.map((review) => (
                         <div key={review._id} className="review-box">
                             <div className="review-content box">
                                 <FontAwesomeIcon className="fa-left" icon={faQuoteLeft} />
                                 <FontAwesomeIcon className="fa-right" icon={faQuoteRight} />
-                                <img src={review.avatar} alt="" />
+                                <img className='ml-12 lg:ml-44' src={review.avatar} alt="" />
+                                <p>{review.name}</p>
                                 <div className="stars"> {review.rating === 5 ?
                                     (<div>
                                         <FontAwesomeIcon icon={faStar} />
@@ -41,8 +42,6 @@ const Reviews = () => {
                                     <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{review.rating}</span>
                                 </div>
                                 <p>{review.message}</p>
-                                <h3>{review.name}</h3>
-                                {/* <span>satisfied client</span> */}
                             </div>
                         </div>
                     ))

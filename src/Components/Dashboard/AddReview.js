@@ -26,8 +26,8 @@ const AddReview = () => {
                         name: data.name,
                         email: data.email,
                         rating: data.rating,
-                        picture: img,
-                        description: data.description,
+                        avatar: img,
+                        message: data.description,
                     }
                     //send to database=>
                     fetch('http://localhost:5000/reviews', {
@@ -78,11 +78,8 @@ const AddReview = () => {
                                     }
                                 })} type="text" placeholder="Your Name" className="input input-bordered w-full max-w-xs" />
                                 <label className="label">
-                                    {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
-
+                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
                                 </label>
-
-
 
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -109,11 +106,15 @@ const AddReview = () => {
                                     required: {
                                         value: true,
                                         message: "Rating is required"
-                                    }
-                                })} type="number" placeholder="Product Price" className="input input-bordered w-full max-w-xs" />
+                                    },
+                                    max: {
+                                        value: 5,
+                                        message: "Rating must be between 1 and 5"
+                                      }
+                                })} type="number" placeholder="Rating" className="input input-bordered w-full max-w-xs" />
                                 <label className="label">
-                                    {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
-
+                                    {errors.rating?.type === 'required' && <span className="label-text-alt text-red-500">{errors.rating.message}</span>}
+                                    {errors.rating?.type === 'max' && <span className="label-text-alt text-red-500">{errors.rating.message}</span>}
                                 </label>
 
 

@@ -2,7 +2,7 @@ import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
 import logo from '../../Assets/Images/footer-logo.png'
 
@@ -22,7 +22,6 @@ const Navbar = ({ children }) => {
             {
                 user && <li><NavLink className='rounded-lg' to='/dashboard'>Dashboard</NavLink></li>
             }
-            {/* <li><NavLink to='/login' className='rounded-lg'>Login</NavLink></li> */}
             <li>{user?.uid ? (<button className='btn btn-ghost' onClick={logout}>Logout</button>) : (<NavLink className='rounded-lg' to='/login'>Login</NavLink>)}</li>
             {/* <button data-toggle-theme="dark,light">Theme</button> */}
             {/* <li className="dropdown dropdown-hover dropdown-end">

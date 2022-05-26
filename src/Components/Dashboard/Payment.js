@@ -25,12 +25,11 @@ const Payment = () => {
     }
     return (
         <div>
-            <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12">
-                <div class="card-body">
+            <div className="card w-50 max-w-md bg-base-100 shadow-xl my-12">
+                <div className="card-body">
                     <p className='text-success font-bold'>Hello, {appointment.user}</p>
                     <h2 class="card-title">Pay for {appointment.product
                     }</h2>
-                    {/* <p>Your Appointment : {appointment.date} at {appointment.slot}</p> */}
                     <p>Please Pay : ${appointment.price}</p>
                 </div>
             </div>
