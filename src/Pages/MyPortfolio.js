@@ -15,7 +15,7 @@ const MyPortfolio = () => {
                     <p className="py-4"><span className='font-bold mr-2'>Education:</span>B.S.C Degree, Govt. BL College,Khulna</p>
                     <p className="py-4"><span className='font-bold mr-2'>Address:</span>Dowlotpur,Khulna</p>
                     <p className="py-4"><span className='font-bold mr-2'>Skills:</span>HTML5, CSS3, Bootstrap, Tailwind CSS, JavaScript, <br /> Nodejs, React, MongoDB</p>
-                    <p className="py-4"><span className='font-bold mr-2'>Project:</span></p>
+                    <p className="py-4"><span className='font-bold mr-2'>Project: <a target='_blank' href="https://its-al-imran22.netlify.app/">Project 01</a>,  <a target='_blank' href="https://its-al-imran.netlify.app/">Project 02</a> ,<a target='_blank' href="https://gregarious-mooncake-08c528.netlify.app/">Project 03</a></span></p>
                 </div>
             </div>
         </div>
