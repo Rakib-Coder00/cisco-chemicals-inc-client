@@ -42,7 +42,6 @@ const MyOrder = () => {
             })
                 .then(res => res.json())
                 .then(result => {
-                    // console.log(result);
                     const remainingItems = orders.filter(service => service._id !== id)
                     setOrders(remainingItems)
                 })

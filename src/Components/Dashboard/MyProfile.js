@@ -3,6 +3,7 @@ import auth from '../../Firebase/Firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import AtomSpinner from '../Shared/AtomSpinner/AtomSpinner';
+import UpdateProfile from './UpdateProfile';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth)
@@ -24,7 +25,7 @@ const MyProfile = () => {
 
 
     const url = `http://localhost:5000/user/${user.email}`;
-    const { data: appointment, isLoading } = useQuery(['Profile', user.email], () => fetch(url, {
+    const { data: appointment, isLoading, refetch, reset } = useQuery(['Profile', user.email], () => fetch(url, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -47,16 +48,18 @@ const MyProfile = () => {
                     <div class="card-body">
                         <h2 class="card-title text-left">Name: {user.displayName}</h2>
                         <h2 class="card-title text-left">Email: {appointment.email}</h2>
-                        <h2 class="card-title text-left">Address: {user.address}</h2>
-                        <h2 class="card-title text-left">Education: {user.address}</h2>
-                        <h2 class="card-title text-left">Location: {user.address}</h2>
-                        <h2 class="card-title text-left">Phone Number: {user.address}</h2>
-                        <h2 class="card-title text-left">Linkedin Profile: {user.address}</h2>
+                        <h2 class="card-title text-left">Address: {appointment.address}</h2>
+                        <h2 class="card-title text-left">Education: {appointment.education}</h2>
+                        {/* <h2 class="card-title text-left">Address: {appointment.address}</h2> */}
+                        <h2 class="card-title text-left">Phone Number: {appointment.phone}</h2>
+                        <h2 class="card-title text-left">Linkedin Profile: {appointment.linkedin}</h2>
                         <div class="card-actions">
-                            <button class="btn btn-primary">Edit Profile</button>
+                            {/* <button class="btn btn-primary">Edit Profile</button> */}
+                            <label for="update-modal" class="btn btn-primary modal-button">Edit Profile</label>
                         </div>
                     </div>
                 </div>
+                <UpdateProfile user={user} refetch={refetch} reset={reset}/>
             </div>
         </div>
     );
