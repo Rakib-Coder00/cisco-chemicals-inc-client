@@ -9,8 +9,8 @@ import Reviews from './Reviews';
 const Home = () => {
     return (
         <div>
-        {/* <Banner/> */}
-        <Careers/>
+        <Banner/>
+        {/* <Careers/> */}
         <Products/>
         <Reviews/>
         <BusinessSum/>

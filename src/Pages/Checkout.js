@@ -10,7 +10,7 @@ const Checkout = () => {
     const { id } = useParams()
     const [product, setProduct] = useState({})
     const [user] = useAuthState(auth)
-    const [orderModal, setOrderModal] = useState(null)
+    const [orderModal, setOrderModal] = useState(false)
 
     // const { data: product, isLoading, refetch } = useQuery('product', () => fetch(`http://localhost:5000/product/${id}`))
     //     .then(res => res.json())
@@ -41,7 +41,7 @@ const Checkout = () => {
                     </div>
                 </div>
             </div>
-             <OrderModal product={product}  setOrderModal={ setOrderModal} />
+            <OrderModal product={product}  />
         </div>
     );
 };

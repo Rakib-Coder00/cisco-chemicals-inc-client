@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
+import logo from '../../Assets/Images/footer-logo.png'
 
 const Navbar = ({ children }) => {
     const [user] = useAuthState(auth);
@@ -37,7 +38,8 @@ const Navbar = ({ children }) => {
             <div className="drawer-content flex flex-col">
                 {/* <!-- Navbar --> */}
                 <div className="w-full navbar bg-base-100 lg:px-20">
-                    <div className="flex-1 px-2 mx-2 text-2xl">Cisco Chemicals</div>
+                    <div className="flex-1 px-2 mx-2 text-2xl"><img className='w-12' src={logo} alt="brand" /><span className='text-primary ml-2'>Cisco Chemicals Inc</span></div>
+                    {/* <img src={logo} alt="brand" /> */}
                     <div className="flex-none lg:hidden">
                         <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>

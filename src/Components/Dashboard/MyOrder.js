@@ -86,7 +86,7 @@ const MyOrder = () => {
                                 {(order.price && order.paid) && <span className='text-error'>Paid!</span>}
                             </td>
                             <td>
-                                {(order.price && !order.paid) ? <button onClick={() => handleDelete(order._id)} className='btn btn-xs btn-error'>Delete</button>:<span className='text-error'>Processing!</span>}
+                                {(order.price && !order.paid) ? <button onClick={() => handleDelete(order._id)} className='btn btn-xs btn-error hover:bg-red-600 '>Delete</button>:<span className='text-error'>Processing!</span>}
                             </td>
                         </tr>))
                         }

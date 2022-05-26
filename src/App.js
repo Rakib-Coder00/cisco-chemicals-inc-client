@@ -22,8 +22,16 @@ import MyProfile from './Components/Dashboard/MyProfile';
 import AddReview from './Components/Dashboard/AddReview';
 import ManageAllProduct from './Components/Dashboard/ManageAllProduct';
 import Payment from './Components/Dashboard/Payment';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+  }, [])
+  
   return (
     <div>
       <Navbar>

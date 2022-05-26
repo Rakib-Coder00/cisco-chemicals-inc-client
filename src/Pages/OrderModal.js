@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import auth from '../Firebase/Firebase.init';
 
 const OrderModal = ({ product }) => {
     const [user] = useAuthState(auth)
-
+    // const [quantity, setQuantity] = useState(product.min_quantity)
+    // console.log(quantity);
+    // const handleQuantity =(e)=>{
+    //     setQuantity(e.target.value);
+    // }
 
     const onSubmit = e => {
         e.preventDefault();
@@ -44,7 +48,7 @@ const OrderModal = ({ product }) => {
                     }
                     // refetch()
                     // to close modal ==>
-                    // setProduct(null)
+                    // setOrderModal(false)
                 })
         }
 
