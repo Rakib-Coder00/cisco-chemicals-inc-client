@@ -17,7 +17,7 @@ const Banner = () => {
                         data-aos-delay='400'
                         data-aos-duration='900' class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     <button data-aos='zoom-in'
-              data-aos-delay='1300' class="btn btn-primary">Get Started</button>
+              data-aos-delay='1300' class="btn text-xl btn-primary">Get Started</button>
                 </div>
             </div>
         </div>

@@ -25,6 +25,7 @@ import Payment from './Components/Dashboard/Payment';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import MyPortfolio from './Pages/MyPortfolio';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/about" element={<About />} />
+          <Route path="/portfolio" element={<MyPortfolio />} />
 
 
           <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>

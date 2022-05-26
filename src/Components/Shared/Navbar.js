@@ -18,6 +18,7 @@ const Navbar = ({ children }) => {
             <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
             <li><NavLink to='/about' className='rounded-lg'>About</NavLink></li>
             <li><NavLink to='/blog' className='rounded-lg'>Blog</NavLink></li>
+            <li><NavLink to='/portfolio' className='rounded-lg'>My Portfolio</NavLink></li>
             {
                 user && <li><NavLink className='rounded-lg' to='/dashboard'>Dashboard</NavLink></li>
             }
