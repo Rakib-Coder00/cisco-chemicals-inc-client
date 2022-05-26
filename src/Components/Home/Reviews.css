@@ -29,3 +29,12 @@
     font-size: 3rem;
     color: #ccc;
 }
+.qna-container{
+    padding:30px 250px;
+}
+
+@media screen and (max-width:680px) {
+    .qna-container{
+        padding:30px 50px;
+    }
+}

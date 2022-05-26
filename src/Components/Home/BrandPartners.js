@@ -5,48 +5,48 @@ const BrandPartners = () => {
     return (
         <div className="my-24">
             <h3 className='font-bold text-primary text-3xl text-center mb-3'>Brand Partner</h3>
-            <div class="slider">
-                <div class="slide-track">
-                    <div class="slide">
+            <div className="slider">
+                <div className="slide-track">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
                     </div>
-                    <div class="slide">
+                    <div className="slide">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
                     </div>
                 </div>

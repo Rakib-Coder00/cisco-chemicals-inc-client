@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faQuoteLeft, faQuoteRight, faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
+import { faQuoteLeft, faQuoteRight, faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
 import './Reviews.css'
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
-    console.log(reviews);
     useEffect(() => {
-      fetch('http://localhost:5000/reviews')
-      .then(res => res.json())
-      .then(data => setReviews(data))
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
+            .then(data => setReviews(data))
     }, [])
     return (
         <div className='mt-40'>
@@ -39,7 +38,7 @@ const Reviews = () => {
                                         <FontAwesomeIcon icon={faStarHalf} />
                                     </div>)
                                 }
-                                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{review.rating}</span>
+                                    <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{review.rating}</span>
                                 </div>
                                 <p>{review.message}</p>
                             </div>

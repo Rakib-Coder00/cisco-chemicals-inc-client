@@ -22,30 +22,24 @@ const ManageAllProduct = () => {
     }
 
     const handleDelete = (id) => {
-        const proceedConfirmation = window.confirm('Are you sure you want to delete this order?')
-        if (proceedConfirmation) {
-            fetch(`http://localhost:5000/product/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'content-type': 'application/json',
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        fetch(`http://localhost:5000/product/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.deletedCount) {
+                    toast.success('Item Deleted successfully', { "id": 'deleted' })
+                    refetch()
                 }
             })
-                .then(res => res.json())
-                .then(result => {
-                    if (result.deletedCount) {
-                        toast.success('Item Deleted successfully', { "id": 'deleted' })
-                        refetch()
-                    }
-                })
-        }
-        else {
-            toast.error('Action Cancelled', { "id": 'cancelled' })
-        }
     }
     return (
-        <div class="overflow-x-auto">
-            <table class="table table-compact w-full">
+        <div className="overflow-x-auto">
+            <table className="table table-compact w-full">
                 <thead>
                     <tr>
                         <th>sl/n</th>
@@ -62,8 +56,8 @@ const ManageAllProduct = () => {
                             <tr key={product._id}>
                                 <th>{index + 1}</th>
                                 <td>
-                                    <div class="avatar">
-                                        <div class="w-14 mask mask-squircle">
+                                    <div className="avatar">
+                                        <div className="w-14 mask mask-squircle">
                                             <img src={product.picture} alt='avatar' />
                                         </div>
                                     </div>
@@ -71,8 +65,20 @@ const ManageAllProduct = () => {
                                 <td>{product.product}</td>
                                 <td>{product.price}</td>
                                 <td>{product.max_quantity}</td>
-                                <td><button onClick={()=>handleDelete(product._id)} className='btn btn-xs btn-error'>Delete</button></td>
-                            </tr>))
+                                <td><label htmlFor="product-modal" className="btn modal-button  btn-xs btn-error">Delete</label>
+                                    {/* <button  className='btn btn-xs btn-error'>Delete</button> */}
+                                </td>
+                                <input type="checkbox" id="product-modal" className="modal-toggle" />
+                                <div className="modal">
+                                    <div className="modal-box">
+                                        <h3 className="font-bold text-lg mb-8">Are you sure to delete this product?</h3>
+                                        <button onClick={() => handleDelete(product._id)} className='btn btn-error hover:bg-red-600 btn-sm'>Yes</button>
+                                        <label htmlFor="product-modal" className="btn btn-sm btn-success ml-4">No</label>
+                                    </div>
+                                </div>
+                            </tr>
+                            ))
+
                     }
                 </tbody>
                 <tfoot>

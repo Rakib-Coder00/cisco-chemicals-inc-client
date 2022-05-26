@@ -22,7 +22,7 @@ const MyProfile = () => {
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse mb-80">
-                
+
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="avatar px-32 pt-10">
                         <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -37,11 +37,11 @@ const MyProfile = () => {
                         <h2 className="card-title text-left">Phone Number: {appointment.phone}</h2>
                         <h2 className="card-title text-left">Linkedin Profile: {appointment.linkedin}</h2>
                         <div className="card-actions">
-                            <label for="update-modal" className="btn btn-primary modal-button">Edit Profile</label>
+                            <label htmlFor="update-modal" className="btn btn-primary modal-button">Edit Profile</label>
                         </div>
                     </div>
                 </div>
-                <UpdateProfile user={user} refetch={refetch} reset={reset}/>
+                <UpdateProfile user={user} refetch={refetch} reset={reset} />
             </div>
         </div>
     );

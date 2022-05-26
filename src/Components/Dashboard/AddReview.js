@@ -52,17 +52,17 @@ const AddReview = () => {
             })
     }
     return (
-        <div class="hero min-h-screen relative" style={{ backgroundImage: `url(${img})` }}>
-            <div class="absolute bg-gradient-to-b from-green-500 to-green-400 opacity-75 inset-0 z-0">
+        <div className="hero min-h-screen relative" style={{ backgroundImage: `url(${img})` }}>
+            <div className="absolute bg-gradient-to-b from-green-500 to-green-400 opacity-75 inset-0 z-0">
 
-</div>
-            <div class="hero-content flex-col lg:flex-row-reverse">
-                <div class="text-center lg:text-left">
-                    <h1 class="text-5xl font-bold">Add Your Desire Product!</h1>
-                    <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem</p>
+            </div>
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="text-center lg:text-left">
+                    <h1 className="text-5xl font-bold">Add Your Desire Product!</h1>
+                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem</p>
                 </div>
-                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <div class="card-body">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)}>
 
                             <div className="form-control w-full max-w-xs">
@@ -110,7 +110,7 @@ const AddReview = () => {
                                     max: {
                                         value: 5,
                                         message: "Rating must be between 1 and 5"
-                                      }
+                                    }
                                 })} type="number" placeholder="Rating" className="input input-bordered w-full max-w-xs" />
                                 <label className="label">
                                     {errors.rating?.type === 'required' && <span className="label-text-alt text-red-500">{errors.rating.message}</span>}
@@ -121,7 +121,7 @@ const AddReview = () => {
                                 <label className="label">
                                     <span className="label-text">Description</span>
                                 </label>
-                                <textarea {...register("description")} class="textarea textarea-bordered"></textarea>
+                                <textarea {...register("description")} className="textarea textarea-bordered"></textarea>
 
                                 <label className="label">
                                     <span className="label-text">Photo</span>

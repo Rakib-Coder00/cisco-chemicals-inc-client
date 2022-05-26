@@ -16,24 +16,24 @@ const Users = () => {
     }
     return (
         <div>
-        <h2 className='text-2xl'>All User : {users.length}</h2>
-        <div class="overflow-x-auto">
-            <table class="table w-full">
-                {/* <!-- head --> */}
-                <thead>
-                    <tr>
-                        <th>SL/no</th>
-                        <th>Email</th>
-                        <th>Status</th>
-                        {/* <th>Action</th> */}
-                    </tr>
-                </thead>
-                <tbody>
-                    {users.map((user, index) => <UserRow key={user._id} user={user} index={index} refetch={refetch} />)}
-                </tbody>
-            </table>
+            <h2 className='text-2xl'>All User : {users.length}</h2>
+            <div className="overflow-x-auto">
+                <table className="table w-full">
+                    {/* <!-- head --> */}
+                    <thead>
+                        <tr>
+                            <th>SL/no</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            {/* <th>Action</th> */}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {users.map((user, index) => <UserRow key={user._id} user={user} index={index} refetch={refetch} />)}
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
     );
 };
 

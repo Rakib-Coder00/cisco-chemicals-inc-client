@@ -1,4 +1,5 @@
 import React from 'react';
+import PageTitle from '../Shared/PageTitle';
 import Banner from './Banner';
 import BrandPartners from './BrandPartners';
 import BusinessSum from './BusinessSum';
@@ -10,13 +11,14 @@ import Reviews from './Reviews';
 const Home = () => {
     return (
         <div>
-        <Banner/>
-        <Products/>
-        <Reviews/>
-        <BusinessSum/>
-        <BrandPartners/>
-        <Careers/>
-        <Footer/>
+            <PageTitle title='Home' />
+            <Banner />
+            <Products />
+            <Reviews />
+            <BusinessSum />
+            <BrandPartners />
+            <Careers />
+            <Footer />
         </div>
     );
 };

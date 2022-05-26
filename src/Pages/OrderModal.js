@@ -1,22 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
+import PageTitle from '../Components/Shared/PageTitle';
 import auth from '../Firebase/Firebase.init';
 
 const OrderModal = ({ product }) => {
     const [user] = useAuthState(auth)
-    // const [quantity, setQuantity] = useState(product.min_quantity)
-    // console.log(quantity);
-    // const handleQuantity =(e)=>{
-    //     setQuantity(e.target.value);
-    // }
 
     const onSubmit = e => {
         e.preventDefault();
         const quantity = e.target.quantity.value;
         const address = e.target.address.value;
         const phone = e.target.phone.value;
-        console.log(quantity, address, phone);
         const order = {
             user: user.displayName,
             email: user.email,
@@ -25,6 +20,7 @@ const OrderModal = ({ product }) => {
             quantity: quantity,
             address: address,
             picture: product.picture,
+            phone: phone
         }
         if (quantity > product.max_quantity || quantity < product.min_quantity) {
             return toast.error(`Quantity should be between ${product.min_quantity} and ${product.max_quantity}`)
@@ -57,11 +53,12 @@ const OrderModal = ({ product }) => {
     }
     return (
         <div>
-            <input type="checkbox" id="order-modal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
+            <input type="checkbox" id="order-modal" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+            <PageTitle title='Order' />
+                <div className="modal-box">
                     <label htmlFor="order-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="font-bold text-lg">{user?.displayName}</h3>
+                    <h3 className="font-bold text-lg">{user?.displayName}</h3>
                     <form onSubmit={onSubmit} className='grid grid-cols-1 gap-3 justify-items-center mt-3'>
                         <input type="text" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
                         <input type="email" name='email' disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />

@@ -32,30 +32,24 @@ const MyOrder = () => {
     }, [user, navigate])
 
     const handleDelete = (id) => {
-        const proceedConfirmation = window.confirm('Are you sure you want to delete this order?')
-        if (proceedConfirmation) {
-            fetch(`http://localhost:5000/order/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'content-type': 'application/json'
-                }
+        fetch(`http://localhost:5000/order/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(result => {
+                const remainingItems = orders.filter(service => service._id !== id)
+                setOrders(remainingItems)
             })
-                .then(res => res.json())
-                .then(result => {
-                    const remainingItems = orders.filter(service => service._id !== id)
-                    setOrders(remainingItems)
-                })
-            toast.success('Item Deleted successfully', { "id": 'deleted' })
-        }
-        else {
-            toast.error('Action Cancelled', { "id": 'cancelled' })
-        }
+        toast.success('Item Deleted successfully', { "id": 'deleted' })
     }
 
     return (
         <div>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
@@ -72,8 +66,8 @@ const MyOrder = () => {
                         {/* <!-- row 1 --> */}
                         {orders.map((order, index) => (<tr key={order._id}>
                             <th>{index + 1}</th>
-                            <td><div class="avatar">
-                                <div class="w-14 mask mask-squircle">
+                            <td><div className="avatar">
+                                <div className="w-14 mask mask-squircle">
                                     <img src={order.picture} alt='avatar' />
                                 </div>
                             </div></td>
@@ -85,14 +79,23 @@ const MyOrder = () => {
                                 {(order.price && order.paid) && <span className='text-error'>Paid!</span>}
                             </td>
                             <td>
-                                {(order.price && !order.paid) ? <button onClick={() => handleDelete(order._id)} className='btn btn-xs btn-error hover:bg-red-600 '>Delete</button>:<span className='text-error'>Processing!</span>}
+                                {(order.price && !order.paid) ? <label htmlFor="confirm-modal" className="btn modal-button  btn-xs btn-error">Cancel</label> : <span className='text-error'>Processing!</span>}
+
                             </td>
+                            <input type="checkbox" id="confirm-modal" className="modal-toggle" />
+                            <div className="modal">
+                                <div className="modal-box">
+                                    <h3 className="font-bold text-lg mb-8">Are you sure to cancel this order?</h3>
+                                    <button onClick={() => handleDelete(order._id)} className='btn btn-error hover:bg-red-600 btn-sm'>Yes</button>
+                                    <label htmlFor="confirm-modal" className="btn btn-sm btn-success ml-4">No</label>
+                                </div>
+                            </div>
                         </tr>))
                         }
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     );
 };
 

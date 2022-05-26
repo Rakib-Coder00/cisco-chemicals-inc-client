@@ -18,16 +18,16 @@ const Login = () => {
 
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-    const sendMail =(e)=>{
+    const sendMail = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         if (/^\S+@\S+\.\S+$/.test(email)) {
             sendPasswordResetEmail(email)
             toast.success('Email sent successfully');
-          }
-          else{
+        }
+        else {
             toast.error('Please enter a valid email address');
-          }
+        }
     }
 
     const onSubmit = data => {
@@ -113,7 +113,7 @@ const Login = () => {
                                 </div>
                                 <div className="flex items-center justify-between">
                                     <div className="text-sm">
-                                        <label for="forgot-modal" className="modal-button text-green-400 hover:text-green-500 cursor-pointer">Forgot password?</label>
+                                        <label htmlFor="forgot-modal" className="modal-button text-green-400 hover:text-green-500 cursor-pointer">Forgot password?</label>
                                     </div>
                                 </div>
                                 <small>Don't have account?<Link className='text-green-400 hover:text-green-500' to='/signup'>Create an Account</Link></small>
@@ -130,11 +130,11 @@ const Login = () => {
             <input type="checkbox" id="forgot-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
-                    <label for="forgot-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="forgot-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <form onSubmit={sendMail}>
                         <p>Enter Your Email:</p>
                         <input type="text" name='email' placeholder="Email" className="input input-bordered w-full max-w-xs" />
-                         <input className="btn btn-primary ml-5" type="submit" value="send" />               
+                        <input className="btn btn-primary ml-5" type="submit" value="send" />
                     </form>
                 </div>
             </div>

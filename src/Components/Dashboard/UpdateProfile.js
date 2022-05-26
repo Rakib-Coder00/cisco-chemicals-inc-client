@@ -41,11 +41,11 @@ const UpdateProfile = ({ user, refetch, reset }) => {
     }
     return (
         <div>
-            <input type="checkbox" id="update-modal" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box relative">
-                    <label for="update-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="text-lg font-bold">Congratulations random Interner user!</h3>
+            <input type="checkbox" id="update-modal" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label htmlFor="update-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h3 className="text-lg font-bold">Congratulations random Interner user!</h3>
                     <form onSubmit={onSubmit} className='grid grid-cols-1 gap-3 justify-items-center mt-3'>
                         <input type="text" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
                         <input type="email" name='email' disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
