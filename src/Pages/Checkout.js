@@ -14,7 +14,7 @@ const Checkout = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${id}`)
+        fetch(`https://shrouded-gorge-86045.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [id, product])

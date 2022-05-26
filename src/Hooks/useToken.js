@@ -4,11 +4,10 @@ const useToken = (user) => {
     const [token, setToken] = useState('');
 
     useEffect(() => {
-        console.log('user logged in', user);
         const email = user?.user?.email;
         const currentUser = { email: email };
         if (email) {
-            fetch(`http://localhost:5000/user/${email}`, {
+            fetch(`https://shrouded-gorge-86045.herokuapp.com/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -17,7 +16,6 @@ const useToken = (user) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log('inside Data', data);
                     const accessToken = data.token;
                     localStorage.setItem('accessToken', accessToken);
                     setToken(accessToken);

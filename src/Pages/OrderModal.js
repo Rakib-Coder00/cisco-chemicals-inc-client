@@ -26,7 +26,7 @@ const OrderModal = ({ product }) => {
             return toast.error(`Quantity should be between ${product.min_quantity} and ${product.max_quantity}`)
         }
         else {
-            fetch('http://localhost:5000/order', {
+            fetch('https://shrouded-gorge-86045.herokuapp.com/order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -35,16 +35,12 @@ const OrderModal = ({ product }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     if (data.insertedId) {
                         toast.success('Order placed successfully');
                     }
                     else {
                         toast.error(`Booking Failed`)
                     }
-                    // refetch()
-                    // to close modal ==>
-                    // setOrderModal(false)
                 })
         }
 
@@ -55,7 +51,7 @@ const OrderModal = ({ product }) => {
         <div>
             <input type="checkbox" id="order-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
-            <PageTitle title='Order' />
+                <PageTitle title='Order' />
                 <div className="modal-box">
                     <label htmlFor="order-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="font-bold text-lg">{user?.displayName}</h3>

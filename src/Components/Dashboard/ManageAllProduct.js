@@ -6,12 +6,12 @@ import AtomSpinner from '../Shared/AtomSpinner/AtomSpinner';
 const ManageAllProduct = () => {
     // const [allProducts, setAllProducts] = useState([])
     // useEffect(() => {
-    //     fetch('http://localhost:5000/product')
+    //     fetch('https://shrouded-gorge-86045.herokuapp.com/product')
     //         .then(res => res.json())
     //         .then(data => setAllProducts(data))
     // }, [])
 
-    const { data: allProducts, isLoading, refetch } = useQuery('allProducts', () => fetch('http://localhost:5000/product', {
+    const { data: allProducts, isLoading, refetch } = useQuery('allProducts', () => fetch('https://shrouded-gorge-86045.herokuapp.com/product', {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -22,7 +22,7 @@ const ManageAllProduct = () => {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://shrouded-gorge-86045.herokuapp.com/product/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
@@ -77,7 +77,7 @@ const ManageAllProduct = () => {
                                     </div>
                                 </div>
                             </tr>
-                            ))
+                        ))
 
                     }
                 </tbody>

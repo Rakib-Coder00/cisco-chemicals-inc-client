@@ -10,7 +10,7 @@ import PaymentForm from './PaymentForm';
 const stripePromise = loadStripe('pk_test_51L1Xa9K72xpPBPaXfbH2ZHygNVJ2rb1EYtpADqsst4Ss4p5uO3x8XDfGSk6MfmI2KRgMbxoG39ixrZaSLkfYW3MT00GwvPNCNU');
 const Payment = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/order/${id}`;
+    const url = `https://shrouded-gorge-86045.herokuapp.com/order/${id}`;
 
     const { data: appointment, isLoading } = useQuery(['order', id], () => fetch(url, {
         method: 'GET',

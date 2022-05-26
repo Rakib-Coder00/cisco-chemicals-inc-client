@@ -32,7 +32,6 @@ const Login = () => {
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)
-        console.log(data);
     }
     const [token] = useToken(user)
 

@@ -8,7 +8,7 @@ import UpdateProfile from './UpdateProfile';
 const MyProfile = () => {
     const [user] = useAuthState(auth)
 
-    const url = `http://localhost:5000/user/${user.email}`;
+    const url = `https://shrouded-gorge-86045.herokuapp.com/user/${user.email}`;
     const { data: appointment, isLoading, refetch, reset } = useQuery(['Profile', user.email], () => fetch(url, {
         method: 'GET',
         headers: {

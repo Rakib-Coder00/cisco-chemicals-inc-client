@@ -22,21 +22,14 @@ const Signup = () => {
     const onSubmit = async (data) => {
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.name })
-        // console.log(data);
     }
 
     useEffect(() => {
         if (token) {
-            // console.log(user);
             toast.success('Successfully login', { id: 'success' })
             navigate(from, { replace: true })
         }
     }, [token, from, navigate])
-    // if (token) {
-    //     // console.log(user);
-    //     toast.success('Successfully login', { id: 'success' })
-    //     navigate(from, { replace: true })
-    //   }
     if (error) {
         toast.error(error.message, { id: 'error' })
 

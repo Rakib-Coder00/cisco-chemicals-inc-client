@@ -9,7 +9,6 @@ const AddReview = () => {
 
 
     const onSubmit = async data => {
-        console.log(data);
         const image = data.image[0];
         const formData = new FormData();
         formData.append('image', image);
@@ -30,7 +29,7 @@ const AddReview = () => {
                         message: data.description,
                     }
                     //send to database=>
-                    fetch('http://localhost:5000/reviews', {
+                    fetch('https://shrouded-gorge-86045.herokuapp.com/reviews', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

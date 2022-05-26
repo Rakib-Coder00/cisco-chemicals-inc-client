@@ -16,8 +16,7 @@ const UpdateProfile = ({ user, refetch, reset }) => {
             linkedin: linkedin,
         }
 
-        console.log(profile);
-        fetch(`http://localhost:5000/user/${user.email}`, {
+        fetch(`https://shrouded-gorge-86045.herokuapp.com/user/${user.email}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -27,7 +26,6 @@ const UpdateProfile = ({ user, refetch, reset }) => {
         })
             .then(res => res.json())
             .then(updated => {
-                console.log(updated);
                 if (updated.modifiedCount) {
                     toast.success('Profile updated successfully');
                     refetch()

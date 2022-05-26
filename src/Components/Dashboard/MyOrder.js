@@ -13,7 +13,7 @@ const MyOrder = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?email=${user.email}`, {
+            fetch(`https://shrouded-gorge-86045.herokuapp.com/order?email=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -32,7 +32,7 @@ const MyOrder = () => {
     }, [user, navigate])
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://shrouded-gorge-86045.herokuapp.com/order/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'

@@ -8,7 +8,6 @@ const AddProduct = () => {
 
 
     const onSubmit = async data => {
-        console.log(data);
         const image = data.image[0];
         const formData = new FormData();
         formData.append('image', image);
@@ -32,7 +31,7 @@ const AddProduct = () => {
                         description: data.description,
                     }
                     //send to database=>
-                    fetch('http://localhost:5000/product', {
+                    fetch('https://shrouded-gorge-86045.herokuapp.com/product', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
