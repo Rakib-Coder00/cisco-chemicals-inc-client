@@ -23,7 +23,7 @@ const AddProduct = () => {
                     const addProduct = {
                         name: data.name,
                         email: data.email,
-                        // product: data.product,
+                        product: data.product,
                         // max_quantity: data.max_quantity,
                         // min_quantity: data.min_quantity,
                         price: data.price,
@@ -103,6 +103,19 @@ const AddProduct = () => {
                                 <label className="label">
                                     {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                                     {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+
+                                </label>
+                                <label className="label">
+                                    <span className="label-text">Product Name</span>
+                                </label>
+                                <input {...register("product", {
+                                    required: {
+                                        value: true,
+                                        message: "Product is required"
+                                    }
+                                })} type="text" placeholder="Product Name" className="input input-bordered w-full max-w-xs" />
+                                <label className="label">
+                                    {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
 
                                 </label>
                                 <label className="label">
