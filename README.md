@@ -1,6 +1,10 @@
 # CISCO CHEMICAL INC
 
 - CISCO Chemical Inc is a  leading professional chemical services provider.
+- This is a full stack web project that utilizes MongoDB as the backend database.
+- Customers can order products and add their own reviews. Implement Web Payments.
+- Admin can manage all orders, upload products, and cancel orders.
+
 
 - CISCO Chemical IS CHICAGO BASED CHEMICAL MANUFACTURE COMPANY ESTABLISHED IN 2009. WE HAVE 60% OF ACCOUNT DEDICATED LANES. ALL THE CORE PROCESSES ARE SIMPLIFIED, DOCUMENTED AND FBA.
 
